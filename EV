@@ -1,0 +1,25 @@
+from itertools import chain
+    graph_edges_list=[]
+    vertex_num=int(input("Vertex number: "))
+    for i in range(vertex_num):
+        for j in range(i+1,vertex_num):
+            graph_edges_list.append([i,j])
+    print(graph_edges_list)
+    c_vertex=0
+    current_edge=graph_edges_list[c_vertex]
+    euler_path=[]
+    graph_edges_list.remove(current_edge)
+    while len(graph_edges_list)   :           
+        for edge in graph_edges_list:
+            #current_vertex=current_egge[1]
+            #next_vertex=egge[0]
+            print(list(chain.from_iterable(euler_path)).count(edge[0]))
+            if current_edge[1] in edge and list(chain.from_iterable(euler_path)).count(edge[0])<vertex_num-2:
+                print(f"Edge: {edge}")
+                euler_path.append(current_edge)
+                print(f"Current edge: {current_edge}")
+                current_edge=edge.copy()
+                graph_edges_list.remove(current_edge)
+                
+                print(f"New current edge: {current_edge}")
+                print(euler_path)
